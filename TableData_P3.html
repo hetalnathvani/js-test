@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript data binding</title>
+    <style>
+      thead {
+        background-color: #527bf7;
+        font-weight: 600;
+        color: white;
+      }
+      td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <thead>
+          <td>Date</td>
+          <td>Currency</td>
+          <td>Rate</td>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script>
+      var data = [
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "43f5940bfd6881b2f8e0c434a3a96f229a8a1054",
+          fields: {
+            date: "2022-03-06",
+            currency: "USD",
+            rate: 1.0929,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "1787f87bcf029a223e001d6f88750fe0ca6772d1",
+          fields: {
+            date: "2022-03-06",
+            currency: "AUD",
+            rate: 1.4872,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "756f0f685431156ad1d3bc24b91d574c5a6f00fa",
+          fields: {
+            date: "2022-03-06",
+            currency: "CAD",
+            rate: 1.3937,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "58e15a0abb6fc40d08a10ae0f58fc2c9525b267a",
+          fields: {
+            date: "2022-03-06",
+            currency: "GBP",
+            rate: 0.8238800000000001,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "4f7879e2c8e97bc11ae065f748a2e13f2cd73c71",
+          fields: {
+            date: "2022-03-06",
+            currency: "SEK",
+            rate: 10.7935,
+          },
+        },
+        {
+          datasetid: "euro-exchange-rates",
+          recordid: "e3f948548d1479dff8b10aeaaf0c247e17b70897",
+          fields: {
+            date: "2022-03-06",
+            currency: "MXN",
+            rate: 22.7543,
+          },
+        },
+      ];
+
+      for (let i = 0; i < data.length; i++) {
+        const table = document.querySelector("tbody");
+        let row = table.insertRow(-1);
+        let c1 = row.insertCell(0);
+        let c2 = row.insertCell(1);
+        let c3 = row.insertCell(2);
+
+        c1.innerText =
+          new Date(data[i].fields.date).getDate() +
+          "-" +
+          new Date(data[i].fields.date).getMonth() +
+          "-" +
+          new Date(data[i].fields.date).getFullYear();
+        c2.innerText = data[i].fields.currency;
+        c3.innerText = data[i].fields.rate;
+      }
+    </script>
+  </body>
+</html>
